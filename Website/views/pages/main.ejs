@@ -1,0 +1,77 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<!-- Search stuff -->
+<br>
+<div class='d-flex justify-content-center' style='position: -webkit-sticky; position: sticky;'>
+    <h1>Artist Search</h1>
+</div>
+
+<div class='d-flex justify-content-center' style='position: -webkit-sticky; position: sticky;'>
+    <input type="text" id="artistsearch" placeholder='Look for an artist'>
+    <div style="padding-left: 5px;">
+        <button id='review-button' type="button" class="btn btn-primary" onclick="on_search_click()">Search</button>
+    </div>
+</div>
+
+<!-- Results -->
+<div id='show_results' style="padding: 10px; display: none;">
+    <div class='d-flex justify-content-center'>
+        <img id='banner' src='' alt="Artist Banner">
+    </div>
+
+    <br>
+    <div>
+        <div>
+            <h3 id='artist-name'></h3>
+        </div>
+
+        <div>
+            <button id='website-button' type="button" class="btn btn-primary" href="#">Website</button>
+            <button id='review-button' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review-modal">Add Review</button>
+        </div>
+
+        <div style="padding-top: 10px;">
+            <b>Formation Year</b>
+            <p id='formation-year'></p>
+        </div>
+
+        <div style="padding-top: 10px;">
+            <b>Genres</b>
+            <p id='genres'></p>
+        </div>
+
+        <div style="padding-top: 10px;">
+            <b>Bio</b>
+            <p id='bio'></p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Add review modal-->
+<div class="modal fade" id="review-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="mb-3">
+                        <label for="modalArtistName" class="form-label">Artist Name</label>
+                        <input type="text" class="form-control" id="modal-artist-name" aria-describedby="modalArtistName" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalReview" class="form-label">Review</label>
+                        <textarea class="form-control" id="modal-review" rows='3'></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick='add_review()'>Submit</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
